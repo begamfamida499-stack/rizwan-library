@@ -12,38 +12,26 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background: #f0f4f8;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
   }
-  @media (min-width: 768px) {
-    body { align-items: center; padding: 40px 20px; }
-  }
+  @media (min-width: 768px) { body { align-items: center; padding: 40px 20px; } }
   .card {
-    width: 100%;
-    max-width: 480px;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
+    width: 100%; max-width: 480px; background: #fff;
+    border-radius: 20px; overflow: hidden;
     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   }
   .header {
-    background: #00694f;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    background: #1565c0; padding: 14px 20px;
+    display: flex; align-items: center; justify-content: flex-end;
   }
   .secure-badge {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 4px 12px;
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 12px;
   }
   .secure-badge svg { width: 13px; height: 13px; fill: #fff; }
   .secure-badge span { color: #fff; font-size: 12px; }
@@ -55,7 +43,7 @@
   @media (min-width: 480px) { .login-body { padding: 32px 32px 40px; } }
   .welcome-title { font-size: clamp(20px, 5vw, 26px); font-weight: 700; color: #111; margin-bottom: 6px; }
   .welcome-sub { font-size: 13px; color: #555; margin-bottom: 24px; }
-  .welcome-sub a { color: #00694f; text-decoration: underline; }
+  .welcome-sub a { color: #1565c0; text-decoration: underline; }
   .field-group { margin-bottom: 16px; }
   .field-label { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 6px; display: block; }
   .field-input-wrap { position: relative; }
@@ -65,15 +53,15 @@
     font-size: 15px; background: #fff; color: #111;
     outline: none; transition: border-color 0.2s; -webkit-appearance: none;
   }
-  .field-input:focus { border-color: #00694f; }
+  .field-input:focus { border-color: #1565c0; }
   .show-btn {
     position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-    background: none; border: none; color: #00694f;
+    background: none; border: none; color: #1565c0;
     font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
   }
   .field-hint { font-size: 11px; color: #888; margin-top: 5px; }
   .remember-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-  .remember-row input[type=checkbox] { margin-top: 2px; accent-color: #00694f; width: 18px; height: 18px; flex-shrink: 0; }
+  .remember-row input[type=checkbox] { margin-top: 2px; accent-color: #1565c0; width: 18px; height: 18px; flex-shrink: 0; }
   .remember-label { font-size: 13px; color: #111; cursor: pointer; }
   .warning-text {
     font-size: 12px; color: #555; margin-bottom: 20px;
@@ -82,33 +70,33 @@
   }
   .warning-text strong { color: #111; }
   .continue-btn {
-    width: 100%; background: #00694f; color: #fff; border: none;
+    width: 100%; background: #1565c0; color: #fff; border: none;
     border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
     cursor: pointer; margin-bottom: 16px; transition: background 0.2s; -webkit-appearance: none;
   }
-  .continue-btn:hover { background: #005540; }
-  .continue-btn:disabled { background: #7dab9a; cursor: not-allowed; }
+  .continue-btn:hover { background: #0d47a1; }
+  .continue-btn:disabled { background: #90b4e8; cursor: not-allowed; }
   .forgot-link { text-align: center; }
-  .forgot-link a { color: #00694f; font-size: 14px; text-decoration: underline; }
+  .forgot-link a { color: #1565c0; font-size: 14px; text-decoration: underline; }
   #toast {
     display: none; margin-top: 14px; padding: 11px 14px;
     border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
   }
-  #toast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
-  #toast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+  #toast.success { background: #e3f0fc; color: #1565c0; border: 1px solid #1565c033; }
+  #toast.error { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
 
   /* PAGE 2 */
   .success-body { padding: 36px 24px 44px; text-align: center; }
   @media (min-width: 480px) { .success-body { padding: 44px 36px 52px; } }
   .tick-circle {
-    width: 80px; height: 80px; border-radius: 50%; background: #00694f;
+    width: 80px; height: 80px; border-radius: 50%; background: #1565c0;
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 20px;
     animation: popIn 0.5s cubic-bezier(.36,1.56,.64,1) both;
   }
   .tick-circle svg { width: 40px; height: 40px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
   @keyframes popIn {
-    0%   { transform: scale(0); opacity: 0; }
+    0% { transform: scale(0); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
   }
   .success-title { font-size: clamp(18px, 4vw, 22px); font-weight: 700; color: #111; margin-bottom: 10px; }
@@ -121,20 +109,20 @@
   .info-box p { font-size: 13px; color: #555; line-height: 1.75; }
   .info-box strong { color: #111; }
   .success-btn {
-    width: 100%; background: #00694f; color: #fff; border: none;
+    width: 100%; background: #1565c0; color: #fff; border: none;
     border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
     cursor: pointer; transition: background 0.2s;
   }
-  .success-btn:hover { background: #005540; }
+  .success-btn:hover { background: #0d47a1; }
 
   /* PAGE 3 */
   .otp-body { padding: 32px 20px 40px; }
   @media (min-width: 480px) { .otp-body { padding: 36px 36px 48px; } }
   .otp-icon {
-    width: 64px; height: 64px; border-radius: 50%; background: #e6f4ef;
+    width: 64px; height: 64px; border-radius: 50%; background: #e3f0fc;
     display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
   }
-  .otp-icon svg { width: 30px; height: 30px; fill: #00694f; }
+  .otp-icon svg { width: 30px; height: 30px; fill: #1565c0; }
   .otp-title { font-size: clamp(17px, 4vw, 21px); font-weight: 700; color: #111; margin-bottom: 8px; text-align: center; }
   .otp-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 28px; text-align: center; }
   .otp-sub strong { color: #111; }
@@ -145,8 +133,8 @@
     display: flex; align-items: center; justify-content: center;
     background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .otp-box.filled { border-color: #00694f; background: #fff; }
-  .otp-box.active { border-color: #00694f; box-shadow: 0 0 0 3px rgba(0,105,79,0.15); }
+  .otp-box.filled { border-color: #1565c0; background: #fff; }
+  .otp-box.active { border-color: #1565c0; box-shadow: 0 0 0 3px rgba(21,101,192,0.15); }
   .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto 24px; }
   .key {
     background: #f0f0f0; border: none; border-radius: 12px;
@@ -159,24 +147,23 @@
   .key.del { background: #fdecea; color: #c0392b; font-size: 18px; }
   .key.del:hover { background: #f5c6c6; }
   .verify-btn {
-    width: 100%; background: #00694f; color: #fff; border: none;
+    width: 100%; background: #1565c0; color: #fff; border: none;
     border-radius: 10px; padding: 15px; font-size: 16px; font-weight: 600;
     cursor: pointer; transition: background 0.2s; margin-bottom: 14px;
   }
-  .verify-btn:hover { background: #005540; }
-  .verify-btn:disabled { background: #7dab9a; cursor: not-allowed; }
+  .verify-btn:hover { background: #0d47a1; }
+  .verify-btn:disabled { background: #90b4e8; cursor: not-allowed; }
   #otpToast {
     display: none; margin-top: 12px; padding: 11px 14px;
     border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center;
   }
-  #otpToast.error   { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
-  #otpToast.success { background: #e6f4ef; color: #00694f; border: 1px solid #00694f33; }
+  #otpToast.error { background: #fdecea; color: #c0392b; border: 1px solid #c0392b33; }
+  #otpToast.success { background: #e3f0fc; color: #1565c0; border: 1px solid #1565c033; }
 </style>
 </head>
 <body>
 
 <div class="card">
-
   <div class="header">
     <div class="secure-badge">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -273,7 +260,6 @@
       <div id="otpToast"></div>
     </div>
   </div>
-
 </div>
 
 <script>
